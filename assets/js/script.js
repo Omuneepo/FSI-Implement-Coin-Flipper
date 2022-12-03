@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         coin.src = "assets/images/penny-heads.jpg";
         coin.alt = "penny (heads side)";
-        status.textContent = "lets get flipped!";
+        status.textContent = "lets get flipping!";
 
         updateScoreboard();
 
