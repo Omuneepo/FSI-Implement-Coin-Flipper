@@ -1,60 +1,54 @@
 // TODO: Declare any global variables we need
-let headsFlip = 0;
-let tailsFlip = 0;
-
+let diceRollCount = [0, 0, 0, 0, 0, 0];
+let precentRolls = [0, 0, 0, 0, 0, 0];
 function updateScoreboard() {
-    let totalFlipCount = headsFlip + tailsFlip; 
-    let percentHeads = 0;
-    let percentTails = 0;
-    if (totalFlipCount > 0) {
-      percentHeads = Math.round((headsFlip / totalFlipCount) * 100);
-      percentTails = Math.round((tailsFlip / totalFlipCount) * 100);
-
-   }
-    
-    document.querySelector("#heads").textContent = headsFlip;
-    document.querySelector("#heads-percent").textContent = percentHeads + "%";
-    document.querySelector("#tails").textContent = tailsFlip;
-    document.querySelector("#tails-percent").textContent = percentTails + "%";
-}  
-
-document.addEventListener('DOMContentLoaded', function () {
-    let flipButton = document.querySelector('#flip');
-        flipButton.addEventListener('click', function() {
-            let randomNumber = Math.random();
-            let isHeads = true;
-            if (randomNumber >0.5) {
-                isHeads= false;
-             }
-        let coin = document.querySelector('#coin');
-        let status = document.querySelector('#status');
-
-        if (isHeads) {
-            coin.src = "assets/images/penny-heads.jpg";
-            coin.alt = "penny (heads side)";
-            status.textContent = "you flipped heads!";
-            headsFlip++;
-            } else {
-            coin.src = "assets/images/penny-tails.jpg"
-            coin.alt = "penny (tails side)"
-            status.textContent= "you flipped tails!";
-            tailsFlip++;
+    let totalRolls = 0;
+        for (let i = 0; i < diceRollCount.length; i++) {
+        totalRolls += diceRollCount[i];
+      }
+    precentRolls = [0, 0, 0, 0, 0, 0];
+        if (totalRolls > 0) {
+          for (let i = 0; i < diceRollCount.length; i++) {
+            precentRolls[i] = Math.round((diceRollCount[i] / totalRolls) * 100); 
             }
-            updateScoreboard();
-            
+        }
+    for (let i = 0; i < diceRollCount.length; i++) {
+        document.querySelector(
+            "#dice-" + (i+1)+ "-rolls").textContent = diceRollCount[i];
+        document.querySelector(
+            "#dice-" + (i+1) + "-percent").textContent = precentRolls[i] + "%"; 
+
+    
+   }
+}
+    
+    
+    
+document.addEventListener('DOMContentLoaded', function () {
+    let flipButton = document.querySelector('#roll');
+     flipButton.addEventListener('click', function() {
+        let rolledValue = Math.ceil(Math.random() * 6);
+
+        let dice = document.querySelector('#dice');
+        let status = document.querySelector('#status');
+         
+        dice.src = "assets/images/dice/dice" + rolledValue + ".png";
+        status.textContent = "you rolled a " + rolledValue + "!";
+        
+        diceRollCount[rolledValue-1]++;
+    
+        updateScoreboard();
+                
             
     });
     let clearButton = document.querySelector("#clear");
     clearButton.addEventListener('click', function() {
-        headsFlip = 0;
-        tailsFlip = 0;
+        diceRollCount = [0, 0, 0, 0, 0, 0];
+        precentRolls = [0, 0, 0, 0, 0, 0];
 
-        let coin = document.querySelector('#coin');
-        let status = document.querySelector('#status');
-
-        coin.src = "assets/images/penny-heads.jpg";
-        coin.alt = "penny (heads side)";
-        status.textContent = "lets get flipping!";
+        dice.src = "assets/images/dice/dice1.png";
+        dice.alt = "Dice 1";
+        status.textContent = "lets get Rolling!";
 
         updateScoreboard();
 

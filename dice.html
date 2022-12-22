@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penny Flip Game</title>
+    <title>Dice Roll Game</title>
     <link rel="stylesheet" href="./assets/css/dice.css">
 </head>
 <body> 
     <main>
-        <H1>Penny Flip Game</H1>
+        <H1>Dice roll Game</H1>
         <div>
             <div>
                 <img
 
-                id="coin" 
-                src="assets/images/penny-heads.jpg" 
-                alt="penny image"/>
+                id="dice" 
+                src="assets/images/dice/dice1.png" 
+                alt="dice image"/>
         </div>        
             <div class="controls">
-                <Button id="flip"> flip the penny </Button>
-                <button id="clear"> clear the Scoreboard</button> 
+                <Button id="roll"> Roll The Dice </Button>
+                <button id="clear"> Clear the Scoreboard</button> 
                 
             </div>
         
@@ -30,18 +30,48 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Number of Heads</th>
-                            <th>Percentage Heads</th>
-                            <th>Number of Tails</th>
-                            <th>Percentage Tails</th>
+                            <th>Dice Roll</th>
+                            <th>Number of Rolls </th>
+                            <th>Percentage of Rolls</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td id="heads">0</td>
-                            <td id="heads-percent">0%</td>
-                            <td id="tails">0</td>
-                            <td id="tails-percent">0%</td>
+                            <td>1</td>
+                            <td id="dice-1-rolls">0</td>
+                            <td id="dice-1-percent">0%</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td id="dice-2-rolls">0</td>
+                            <td id="dice-2-percent">0%</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td id="dice-3-rolls">0</td>
+                            <td id="dice-3-percent">0%</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td id="dice-4-rolls">0</td>
+                            <td id="dice-4-percent">0%</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td id="dice-5-rolls">0</td>
+                            <td id="dice-5-percent">0%</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td id="dice-6-rolls">0</td>
+                            <td id="dice-6-percent">0%</td>
+                            
                         </tr>
                     </tbody>
                 </table>
